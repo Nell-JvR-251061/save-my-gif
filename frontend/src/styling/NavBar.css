@@ -1,0 +1,29 @@
+:root{
+    --black: #0c0c0c;
+    --blue: #0353A4;
+    --grey: #a0b2a6;
+    --orange: #f96f5d ;
+    --light-black: #25291C;
+}
+
+.navbar{
+    background-color: var(--light-black);
+    padding: 5px !important;
+    z-index: 1;
+}
+
+#login-button{
+    background-color: var(--orange);
+    color: var(--light-black);
+    border: solid;
+    border-color: var(--light-black);
+    border-width: 1px;
+}
+
+#login-button:hover{
+    background-color: var(--black);
+    color: var(--orange);
+    border: solid;
+    border-color: var(--orange);
+    border-width: 1px;
+}
