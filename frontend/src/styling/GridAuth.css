@@ -1,0 +1,46 @@
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 5%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  gap: 10px;
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #999;
+  background-color: #e5e7eb;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+.cell:hover {
+  background-color: #d1d5db;
+}
+
+.cell.active {
+  background-color: #4ade80;
+  color: white;
+}
+
+.save-button {
+  padding: 10px 16px;
+  border: none;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.save-button:hover {
+  background-color: #1d4ed8;
+}

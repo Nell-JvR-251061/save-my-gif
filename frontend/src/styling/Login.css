@@ -1,0 +1,71 @@
+:root{
+    --black: #0c0c0c;
+    --blue: #0353A4;
+    --grey: #a0b2a6;
+    --orange: #f96f5d ;
+    --light-black: #25291C;
+}
+
+body{
+    background-color: white;
+}
+
+input{
+    padding: 3% !important;
+    font-size: 65% !important;
+}
+
+#login-header{
+    font-size: 150%;
+    text-align: center;
+}
+
+#login-container{
+    color: var(--orange);
+    margin-top: 2%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+    font-size: 180%;
+    background-color: var(--light-black);
+    padding: 3% 3% 3% 3%;
+    border-radius: 24px;
+}
+
+#login-btn{
+    background-color: var(--orange);
+    color: var(--light-black);
+    border: solid;
+    border-color: var(--light-black);
+    border-width: 5px;
+    border-radius: 12px;
+    padding: 2%;
+    font-size: 100%;
+    flex-direction: row;
+}
+
+#login-btn:hover{
+    background-color: var(--black);
+    color: var(--orange);
+    border: solid;
+    border-color: var(--orange);
+    border-width: 5px;
+}
+
+#sign-in-tag{
+    margin-top: 2%;
+    text-decoration: none;
+    text-align: center;
+    font-size: 60%;
+    color: var(--blue);
+    background-color: transparent;
+    border: none;
+}
+
+#sign-in-tag:hover{
+    color: var(--orange);
+}
+
+.sign-in-labels{
+    text-align: left;
+}
