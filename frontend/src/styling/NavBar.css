@@ -27,3 +27,23 @@
     border-color: var(--orange);
     border-width: 1px;
 }
+
+/* #nav-dropdown{
+    width: 5%;
+} */
+
+#dropdown-basic{
+    font-size: 24px;
+    padding: 12px, 32px, 12px, 32px !important;
+    background-color: var(--orange);
+    border-color: var(--orange);
+}
+
+#dropdown-basic:hover{
+    background-color: var(--light-black);
+    border-color: var(--orange);
+}
+
+.dropdown-toggle::before {
+    display: none !important;
+}
