@@ -1,3 +1,11 @@
+:root {
+  --black: #0c0c0c;
+  --blue: #0353a4;
+  --grey: #a0b2a6;
+  --orange: #f96f5d;
+  --light-black: #25291c;
+}
+
 .outer-container {
   display: flex;
   min-height: 100%;
@@ -8,27 +16,29 @@
   padding: 1rem;
 }
 
-@media (min-width: 640px) {
+/* @media (min-width: 640px) {
   .outer-container {
     aspect-ratio: 4 / 3;
   }
-}
+} */
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .outer-container {
     aspect-ratio: 2 / 1;
   }
-}
+} */
 
 .step-circle-container {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   max-width: 28rem;
-  border-radius: 2rem;
+  border-radius: 0;
   box-shadow:
     0 20px 25px -5px rgba(0, 0, 0, 0.1),
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  background-color: var(--light-black);
 }
 
 .step-indicator-row {
@@ -71,12 +81,17 @@
   transition: all 350ms;
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
-  color: #a3a3a3;
+  /* color: #a3a3a3; */
   cursor: pointer;
+
+  background-color: var(--grey) !important;
+  border-color: var(--grey) !important;
+  border: solid;
+  border-radius: 8px;
 }
 
 .back-button:hover {
-  color: #52525b;
+  background-color: black !important;
 }
 
 .back-button.inactive {
@@ -90,21 +105,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9999px;
-  background-color: #5227ff;
+  /* border-radius: 9999px; */
+  /* background-color: #5227ff; */
   color: #fff;
   font-weight: 500;
   letter-spacing: -0.025em;
   padding: 0.375rem 0.875rem;
   cursor: pointer;
+
+  background-color: var(--orange) !important;
+  border-color: var(--orange) !important;
+  border: solid;
+  border-radius: 8px;
 }
 
 .next-button:hover {
-  background-color: #5227ff;
+  /* background-color: #5227ff; */
+  background-color: black !important;
 }
 
 .next-button:active {
-  background-color: #5227ff;
+  /* background-color: #5227ff; */
+  background-color: var(--orange) !important;
 }
 
 .step-indicator {
@@ -121,6 +143,8 @@
   justify-content: center;
   border-radius: 9999px;
   font-weight: 600;
+
+  background-color: var(--orange) !important;
 }
 
 .active-dot {
@@ -132,6 +156,7 @@
 
 .step-number {
   font-size: 0.875rem;
+  color: white;
 }
 
 .step-connector {
@@ -150,10 +175,42 @@
   left: 0;
   top: 0;
   height: 100%;
+
+  background-color: var(--orange) !important;
 }
 
 .check-icon {
   height: 1rem;
   width: 1rem;
   color: #fff;
+}
+
+.sign-in-tag {
+  text-decoration: none;
+  text-align: center;
+  font-size: 80%;
+  color: white;
+  background-color: transparent;
+  border: none;
+  margin-top: 5%;
+}
+
+.sign-in-tag:hover {
+  color: var(--orange);
+}
+
+.modal-content {
+  border: none;
+}
+
+.modal-header {
+  color: white;
+  border: none;
+  background-color: var(--orange);
+  border-radius: 8px;
+}
+
+.btn-close {
+  filter: brightness(0) saturate(100%) invert(23%) sepia(74%) saturate(1586%)
+    hue-rotate(190deg) brightness(99%) contrast(102%);
 }

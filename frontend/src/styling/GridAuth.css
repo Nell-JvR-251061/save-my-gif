@@ -1,3 +1,11 @@
+:root {
+  --black: #0c0c0c;
+  --blue: #0353a4;
+  --grey: #a0b2a6;
+  --orange: #f96f5d;
+  --light-black: #25291c;
+}
+
 .grid-container {
   display: flex;
   flex-direction: column;
@@ -15,20 +23,29 @@
 .cell {
   width: 60px;
   height: 60px;
-  border: 1px solid #999;
-  background-color: #e5e7eb;
-  cursor: pointer;
+  border: solid;
+  border-width: 5px;
+  border-color: white;
+  border-radius: 8px;
+  background-color: white;
   font-size: 16px;
   transition: background-color 0.2s ease;
+
 }
 
 .cell:hover {
-  background-color: #d1d5db;
+  background-color: var(--blue);
+  border-color: white;
 }
 
 .cell.active {
-  background-color: #4ade80;
-  color: white;
+  background-color: var(--blue);
+  border-color: var(--blue);
+}
+
+.cell.active:hover {
+  background-color: var(--blue);
+  border-color: white;
 }
 
 .save-button {
@@ -36,11 +53,14 @@
   border: none;
   background-color: #2563eb;
   color: white;
-  cursor: pointer;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 14px;
 }
 
 .save-button:hover {
   background-color: #1d4ed8;
+}
+
+#grid-info {
+  color: var(--orange);
 }

@@ -1,29 +1,38 @@
 import "../styling/GridAuth.css";
 
 import { useState } from "react";
+import { forwardRef, useImperativeHandle, useRef } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const GridAuth = () => {
+const GridAuth = forwardRef(({_text}, _runSave) => {
   const [cells, setCells] = useState(Array(16).fill(false));
+  let authCode;
+
+  useImperativeHandle(_runSave, () =>({
+    RunSave(){
+      SaveAuth();
+      return authCode;
+    }
+  }));
 
   const toggleCell = (index) => {
     setCells((prev) => prev.map((cell, i) => (i === index ? !cell : cell)));
   };
 
-  const handleSave = () => {
+  const SaveAuth = () => {
     const activeSquares = cells
       .map((isActive, index) => (isActive ? index : null))
       .filter((v) => v !== null);
 
-    const autCode = activeSquares.join("");
+    authCode = activeSquares.join("");
 
     console.log("Active squares:", activeSquares);
-    console.log("Active squares:", autCode);
+    console.log("Active squares:", authCode);
   };
 
   return (
     <div className="grid-container">
-      <h4>Create a pattern</h4>
+      <h4 id="grid-info">{_text}</h4>
       <div className="grid">
         {cells.map((isActive, index) => (
           <button
@@ -35,11 +44,11 @@ const GridAuth = () => {
         ))}
       </div>
 
-      <button className="save-button" onClick={handleSave}>
+      {/* <button className="save-button" onClick={SaveAuth}>
         Save Selected Squares
-      </button>
+      </button> */}
     </div>
   );
-};
+});
 
 export default GridAuth;

@@ -17,7 +17,8 @@
     color: var(--light-black);
     border: solid;
     border-color: var(--light-black);
-    border-width: 1px;
+    border-width: 5px;
+    border-radius: 12px;
 }
 
 #login-button:hover{
@@ -25,7 +26,7 @@
     color: var(--orange);
     border: solid;
     border-color: var(--orange);
-    border-width: 1px;
+    border-width: 5px;
 }
 
 /* #nav-dropdown{

@@ -12,7 +12,7 @@ import CircularText from "../components/CircularText";
 
 import { NavLink } from "react-router-dom";
 
-const NavBar = ({ _isLogin, _setLogin }) => {
+const NavBar = ({ _isLogin, _setLogin, _userInitial }) => {
   console.log("NAV " + _isLogin);
 
   return (
@@ -31,7 +31,7 @@ const NavBar = ({ _isLogin, _setLogin }) => {
         {_isLogin ? (
           <Dropdown id="nav-dropdown" drop="start">
             <Dropdown.Toggle id="dropdown-basic">
-              P
+              {_userInitial}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>

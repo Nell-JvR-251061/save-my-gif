@@ -7,7 +7,7 @@ const UserSchema = new mongoose.Schema({
     email: {type: String, required: true, trim: true, lowercase: true, unique: true},
     password: {type: String, required: true, trim: true},
     authCode: {type: String, required: true, trim: true},
-    gif: {type: String, trim: true}
+    gif: {type: String, required: true, trim: true}
 },
 {timestamps: true}
 );
