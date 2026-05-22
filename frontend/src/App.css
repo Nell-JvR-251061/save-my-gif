@@ -3,3 +3,7 @@
   margin: 0;
   width: 100vw;
 }
+
+nav{
+  z-index: 2;
+}

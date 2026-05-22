@@ -7,11 +7,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const GridAuth = forwardRef(({_text}, _runSave) => {
   const [cells, setCells] = useState(Array(16).fill(false));
   let authCode;
+  let isOkay = false;
 
   useImperativeHandle(_runSave, () =>({
     RunSave(){
       SaveAuth();
       return authCode;
+      
+      // if(isOkay){
+      //   return authCode;
+      // }
+      // else{
+      //   return false;
+      // }
     }
   }));
 
@@ -24,15 +32,17 @@ const GridAuth = forwardRef(({_text}, _runSave) => {
       .map((isActive, index) => (isActive ? index : null))
       .filter((v) => v !== null);
 
-    authCode = activeSquares.join("");
+      authCode = activeSquares.join("");
 
-    console.log("Active squares:", activeSquares);
-    console.log("Active squares:", authCode);
   };
 
   return (
     <div className="grid-container">
-      <h4 id="grid-info">{_text}</h4>
+      <h4 className="grid-info">{_text[0]}</h4>
+      <h6 className="grid-info">
+        {!_text[1] ? "" : _text[1]}
+      </h6>
+      
       <div className="grid">
         {cells.map((isActive, index) => (
           <button
@@ -43,10 +53,6 @@ const GridAuth = forwardRef(({_text}, _runSave) => {
           </button>
         ))}
       </div>
-
-      {/* <button className="save-button" onClick={SaveAuth}>
-        Save Selected Squares
-      </button> */}
     </div>
   );
 });

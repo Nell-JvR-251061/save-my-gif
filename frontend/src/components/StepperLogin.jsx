@@ -1,6 +1,8 @@
 import React, { useState, Children, useRef, useLayoutEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
+import Modal from "react-bootstrap/Modal";
+
 import "../styling/Stepper.css";
 
 export default function StepperLogin({
@@ -19,6 +21,8 @@ export default function StepperLogin({
   disableStepIndicators = false,
   renderStepIndicator,
   _setSigning,
+  _checkStep,
+  _Submit,
   ...rest
 }) {
   const [currentStep, setCurrentStep] = useState(initialStep);
@@ -27,6 +31,14 @@ export default function StepperLogin({
   const totalSteps = stepsArray.length;
   const isCompleted = currentStep > totalSteps;
   const isLastStep = currentStep === totalSteps;
+
+  const [show, setShow] = useState(false);
+  const [message, setMessage] = useState(
+    "Please fill in all the fields to proceed.",
+  );
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const updateStep = (newStep) => {
     setCurrentStep(newStep);
@@ -45,23 +57,47 @@ export default function StepperLogin({
   };
 
   const handleNext = () => {
+    let [isOkay, passMessage] = _checkStep(currentStep);
     if (!isLastStep) {
-      setDirection(1);
-      updateStep(currentStep + 1);
+      if (!isLastStep && isOkay) {
+        setDirection(1);
+        setDirection(1);
+        updateStep(currentStep + 1);
+        updateStep(currentStep + 1);
+      } else {
+        setMessage(passMessage);
+        setShow(true);
+      }
     }
   };
 
   const handleComplete = () => {
-    setDirection(1);
-    updateStep(totalSteps + 1);
+    let [isOkay, passMessage] = _checkStep(currentStep);
+    if (isOkay) {
+      setDirection(1);
+      setDirection(1);
+      updateStep(totalSteps + 1);
+      updateStep(totalSteps + 1);
+
+      _Submit();
+    } else {
+      setMessage(passMessage);
+      setShow(true);
+    }
   };
 
-  const ChangeSigning = () =>{
+  const ChangeSigning = () => {
     _setSigning(true);
-  }
+  };
 
   return (
     <div className="outer-container" {...rest}>
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title className="h5">{message}</Modal.Title>
+        </Modal.Header>
+      </Modal>
+
       <div
         className={`step-circle-container ${stepCircleContainerClassName}`}
         style={{ border: "1px solid #222" }}
@@ -132,8 +168,8 @@ export default function StepperLogin({
               </button>
             </div>
             <button className="sign-in-tag" onClick={ChangeSigning}>
-                First time? - Register here
-              </button>
+              First time? - Register here
+            </button>
           </div>
         )}
       </div>

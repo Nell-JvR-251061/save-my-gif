@@ -45,6 +45,19 @@
     border-color: var(--orange);
 }
 
-.dropdown-toggle::before {
+.dropdown-toggle::after {
     display: none !important;
+}
+
+#dropdown-menu{
+    /* background-color: var(--blue); */
+}
+
+.dropdown-item{
+    color: var(--blue) !important;
+}
+
+.dropdown-item:hover{
+    background-color: var(--orange) !important;
+    color: white !important;
 }

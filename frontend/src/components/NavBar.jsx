@@ -1,5 +1,7 @@
 import "../styling/NavBar.css";
 
+import { useAuth } from "./AuthManager";
+
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -11,9 +13,20 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CircularText from "../components/CircularText";
 
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 const NavBar = ({ _isLogin, _setLogin, _userInitial }) => {
-  console.log("NAV " + _isLogin);
+
+  const { user } = useAuth();
+  const { Logout } = useAuth();
+
+  const navigate = useNavigate();
+
+  const LoggingOut = () => {
+    Logout();
+    navigate("/");
+  };
 
   return (
     <Navbar>
@@ -28,23 +41,28 @@ const NavBar = ({ _isLogin, _setLogin, _userInitial }) => {
             />
           </NavLink>
         </Navbar.Brand>
-        {_isLogin ? (
-          <Dropdown id="nav-dropdown" drop="start">
-            <Dropdown.Toggle id="dropdown-basic">
-              {_userInitial}
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item href="#action/3.1">View GIF</Dropdown.Item>
-              <Dropdown.Item>Logout</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        ) : (
+        {!user ? (
           <NavLink to="/login">
             <Button id="login-button" variant="dark">
               Login
             </Button>
           </NavLink>
+        ) : (
+          <Dropdown id="nav-dropdown" drop="down">
+            <Dropdown.Toggle id="dropdown-basic">{user.name}</Dropdown.Toggle>
+
+            <Dropdown.Menu id="dropdown-menu">
+              <Dropdown.Item
+                className="dropdown-item"
+                onClick={() => navigate("/display")}
+              >
+                View GIF
+              </Dropdown.Item>
+              <Dropdown.Item className="dropdown-item" onClick={LoggingOut}>
+                Logout
+              </Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
         )}
       </Container>
     </Navbar>

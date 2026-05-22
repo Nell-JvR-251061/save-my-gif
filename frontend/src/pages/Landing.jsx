@@ -1,8 +1,11 @@
 import "../styling/Landing.css";
 
 import PixelSnow from "../components/PixelSnow";
+import { useAuth } from "../components/AuthManager";
 
 const Landing = () => {
+  const { user } = useAuth();
+
   return (
     <>
       <div id="snow-container">
@@ -23,7 +26,7 @@ const Landing = () => {
       </div>
 
       <div id="catch-phrase" className="ubuntu-bold">
-        <p>STORE YOUR GIFS SAFELY AND SECURELY</p>
+        {!user ? <p>Storing your GIFs securely <br/>  since 2026</p> : <p>Howdy, {user.name}! <br/> Your GIF awaits... </p>}
       </div>
     </>
   );

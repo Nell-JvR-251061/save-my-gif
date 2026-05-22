@@ -61,6 +61,6 @@
   background-color: #1d4ed8;
 }
 
-#grid-info {
+.grid-info {
   color: var(--orange);
 }

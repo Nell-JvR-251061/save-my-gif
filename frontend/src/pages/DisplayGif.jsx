@@ -1,13 +1,14 @@
 import "../styling/DisplayGif.css";
 
-const DisplayGif = (_url) => {
+import { useAuth } from "../components/AuthManager";
 
-  let image = _url._url;
+const DisplayGif = () => {
+  const { user } = useAuth();
 
   return (
     <>
       <div>
-        <img src={image} id="image-display"></img>
+        {!user ? <h1>GIF Missing</h1> : <img src={user.url} id="image-display"></img>}
       </div>
     </>
   );
