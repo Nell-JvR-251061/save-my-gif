@@ -53,6 +53,7 @@ const Login = () => {
     setUrl(null);
   };
 
+  //-----------------------------------------------------Register Check-------------------------------------------------->
   const RegisterCheck = (step) => {
     switch (step) {
       case 1:
@@ -102,7 +103,7 @@ const Login = () => {
         break;
     }
   };
-
+//-----------------------------------------------------Submit Registration Request-------------------------------------------------->
   const RegisterSubmit = async () => {
     try {
 
@@ -130,7 +131,7 @@ const Login = () => {
       ClearInputs();
     }
   };
-
+//-----------------------------------------------------Submit Login Request-------------------------------------------------->
   const LoginSubmit = async () => {
     try {
       const res = await fetch(API + "/login", {
@@ -157,7 +158,7 @@ const Login = () => {
       navigate("/");
     }
   };
-
+//-----------------------------------------------------Login Check-------------------------------------------------->
   const LoginCheck = (step) => {
     switch (step) {
       case 1:
