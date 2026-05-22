@@ -101,6 +101,11 @@ The app then makes an API call to check if this user is exists/registered/authen
 
 ---
 
+## Demo Video
+**Link:** **https://drive.google.com/file/d/1pF6iyLjl4mJ2c5sA_CL11Pyp36VUlqx7/view?usp=drive_link**
+
+---
+
 ### App Dependencies
 
 **Backend:** "bcrypt, cors, dotenv, express, jsonwebtoken, mongoose
